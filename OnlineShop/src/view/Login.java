@@ -8,83 +8,52 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controller.LoginController;
-import data.ProductManager;
 
-import java.awt.Color;
-import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import javax.swing.JPasswordField;
 
-	private ProductManager productManager = new ProductManager();
+public class Login extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField userTextbox;
+	private JPasswordField userPasswordTextBox;
+	private LoginController loginController = new LoginController();
 
 	/**
-	 * Launch the application.
+	 * Create the frame.
 	 */
-
-	/**
-
-		*/
 	public Login() {
-
-		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 910, 443);
 		contentPane = new JPanel();
-		contentPane.setBorder(new Empt
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
 
-		contentPane.setLayout(nul
+		JButton LoginBtn = new JButton("Login");
+		LoginBtn.setBounds(656, 276, 89, 23);
+		contentPane.add(LoginBtn);
 
-		
-		JPanel panel = new JPanel
-
-		
-		contentPane.add(panel);
-
-
-			anel_1.setBounds(355, 11, 349, 415);
-		contentPane.add(panel_1);
-
-			sernameTextBox = new JTextField();
-		usernameTextBox.setBounds(126, 148, 121, 20);
-		panel_1.add(usernameTextBox);
-		usernameTextBox.setColumns(10);
-
-		JButton btnNewButton = new JButton("Login");
-
-		btnNewButton.setBounds(139, 257, 89, 23);
-		panel_1.add(btnNewButton);
-
-		JLabel lblNewLabel = new JLabel("Username");
-		lblNewLabel.setBounds(38, 151, 78, 14);
-		panel_1.add(lblNewLabel);
-
-		JLabel lblNewLabel_1 = new JLabel("Password");
-		lblNewLabel_1.setBounds(35, 205, 81, 14);
-		panel_1.add(lblNewLabel_1);
+		userTextbox = new JTextField();
+		userTextbox.setBounds(625, 146, 138, 20);
+		contentPane.add(userTextbox);
+		userTextbox.setColumns(10);
 
 		userPasswordTextBox = new JPasswordField();
-		userPasswordTextBox.setBounds(126, 202, 121, 20);
-		panel_1.add(userPasswordTextBox);
+		userPasswordTextBox.setBounds(625, 224, 141, 20);
+		contentPane.add(userPasswordTextBox);
 
-		JLabel loginStatus = new JLabel("");
-		loginStatus.setBounds(38, 309, 137, 14);
-		panel_1.add(loginStatus);
-
-		btnNewButton.addActionListener(new ActionListener() {
+		LoginBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Button Click");
-				String userName = usernameTextBox.getText();
+				String userName = userTextbox.getText();
 				String userPass = userPasswordTextBox.getText();
-				String status = loginController.login(userName, userPass);
-				loginStatus.setText(status);
-				if(e.getSource()==btnNewButton){
-					contentPane.setVisible(false);
-				HomeScreen myHomeScreen = new HomeScreen();
-				}
-				
+				loginController.login(userName, userPass);
+				dispose();
+				HomeScreen homeScreen = new HomeScreen();
 			}
 		});
 	}
-
 }
