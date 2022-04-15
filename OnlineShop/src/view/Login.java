@@ -1,8 +1,5 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -22,9 +19,7 @@ public class Login extends JFrame {
 	private JPasswordField userPasswordTextBox;
 	private LoginController loginController = new LoginController();
 
-	/**
-	 * Create the frame.
-	 */
+	
 	public Login() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 910, 443);
@@ -53,6 +48,7 @@ public class Login extends JFrame {
 				loginController.login(userName, userPass);
 				dispose();
 				HomeScreen homeScreen = new HomeScreen();
+				
 			}
 		});
 	}

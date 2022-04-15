@@ -1,9 +1,5 @@
 package controller;
 
-import data.DataManager;
-import view.HomeScreen;
-import view.Login;
-
 public class LoginController {
 
 
@@ -16,7 +12,5 @@ public class LoginController {
 		return "Login Failed";
 	}
 
-	// public void disposeLogin() {
-
-	// }
+	
 }
